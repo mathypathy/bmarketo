@@ -1,0 +1,152 @@
+.contactform {
+  height:1000px;
+  // contact form pc screen
+  @include lg {
+    margin: 100px;
+  }
+  .container {
+    .contacthero {
+      display: none;
+
+       // container pc screen
+      @include lg {
+        display: block;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .formsquare {
+      height:800px;
+      display: block;
+      text-align: center;
+      h3 {
+        margin-top: 20px;
+      }
+
+      hr {
+        display: none;
+      }
+       // square pc screen
+      @include lg {
+        height:500px;
+        padding-bottom: 10px;
+        margin-top: 50px;
+        box-shadow: 0.4px 0.4px 1.4px 1.4px #ecb5b54d;
+        h3 {
+          padding-top: 30px;
+          font-size: 20px;
+          margin-top: 20px;
+          text-align: left;
+          margin-left: 180px;
+        }
+        hr {
+          display: block;
+          width: 100px;
+          margin-bottom: 50px;
+          margin-left: 180px;
+        }
+
+        form {
+          text-align: center;
+          padding-bottom: 10px;
+           //form pc screen
+          @include lg {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(2, 500px);
+            grid-template-rows: repeat(3, 70px);
+            margin-bottom: 50px;
+            margin-left:65px;
+            gap: -200px;
+            font-family: $font-poppins;
+          }
+          input {
+            text-align: center;
+                        
+             // inputfield pc screen
+            @include lg {
+              text-align: left;
+              background-color: $color-theme-2;
+            }
+          }
+
+          input::placeholder {
+            text-align: center;
+
+             // pc placeholder in inputfield pc screen
+            @include lg {
+              text-align: left;
+            }
+          }
+
+          label {
+             // pc screen
+            @include lg {
+              display: flex;
+              justify-content: flex-start;
+            }
+          } 
+          .commentsection{
+            // FIXA DETTA SENARE i MOBILLÄGET
+         
+            @include lg{
+            justify-content: left;  
+            }
+            .commentlabel{
+              display:block;
+              @include lg{
+              margin:0;
+              display:block;
+                text-align:left;
+              }
+            }
+
+            .commentarea{
+             display:block;
+             resize: none;
+       
+              @include lg{
+                resize: none;
+                border: 0;
+                display:block;
+                width:915px;
+                background-color: $color-theme-2;
+              }
+            }
+          }
+
+
+
+        }
+      }
+      .btn-theme {
+
+         // submit utton pc screen
+        @include lg {
+          display: block;
+          justify-content: left;
+          margin-left: 180px;
+        }
+      }
+    }
+  }
+}
+iframe {
+  display: none;
+
+   // pc screen
+  @include lg {
+    display: block;
+  }
+}
+
+.contactfooter {
+  display: none;
+  
+   // pc screen
+    @include lg {
+    display: block;
+  }
+}

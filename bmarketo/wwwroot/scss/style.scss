@@ -1,0 +1,19 @@
+@import "./core/fonts";
+@import "./core/colors";
+@import "./core/mixins";
+
+// HOME
+@import "./components/home/base";
+@import "./components/home/utilities";
+@import "./components/home/header";
+@import "./components/home/showcase";
+@import "./components/home/cardgrid";
+@import "./components/home/bestprice";
+@import "./components/home/spotlight";
+@import "./components/home/endboxes";
+@import "./components/home/subscribe";
+@import "./components/home/footer";
+
+// CONTACT
+@import "./components/contact/contact";
+@import "./components/login/login";  

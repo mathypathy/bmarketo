@@ -1,0 +1,30 @@
+@import '../../core/_colors.scss';
+
+
+.end-boxes{
+    display:none;
+    @include lg{
+    display:grid;
+    grid-template-columns: repeat(3,420px);
+    justify-content: center;
+    text-align: left;
+    }
+    .boxes{     
+        .productname{
+            @include lg{
+                font-weight:$font-weight-bold;
+            }
+        }
+        .info{
+            @include lg{
+                font-size:12px;
+            }
+        }
+        .comment{
+            @include lg{
+                font-size:14px;
+                color:$color-dark-4;
+            }
+        }
+    }
+}

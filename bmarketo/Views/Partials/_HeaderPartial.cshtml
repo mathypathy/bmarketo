@@ -1,0 +1,25 @@
+﻿<header>
+    <div class="container">
+        <img class="logo" src="Images/logo.svg" alt="" />
+        <div class="menudiv">
+            <nav class="hide" id="menu">
+                <a class="link" asp-controller="Home" asp-action="index">HOME</a>
+                <a class="link" asp-controller="Products" asp-action="index">PRODUCTS</a>
+                <a class="link" asp-controller="Contacts" asp-action="index">CONTACT</a>
+            </nav>
+            <nav class="menu-icons">
+                <a class="link" asp-controller="Products" asp-action="Search">
+                    <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a class="link" asp-controller="Login" asp-action="index">Login</a>
+                <a class="link" asp-controller="Cart" asp-action="index">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            </nav>
+        </div>
+
+        <div class="toggle">
+            <button class="btn-white" data-option="toggle" data-target="#menu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+</header>

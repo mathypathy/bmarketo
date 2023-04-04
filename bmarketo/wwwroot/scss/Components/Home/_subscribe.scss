@@ -1,0 +1,36 @@
+@import '../../core/_colors.scss';
+
+.subscribe {
+  @include lg {
+    
+    padding: 65px;
+    text-align: center;
+    background-color: $color-theme-3;
+    height: 300px;
+  }
+
+  .whitebox {
+    @include lg {
+      height: 180px;
+      justify-content: center;
+      background-color: $color-white;
+      padding-top: 60px;
+    }
+
+    input {
+      @include lg {
+        height: 70px;
+        width: 700px;
+        border-color: $color-theme-2;
+        border-radius: 25px;
+        margin-left: 180px;
+        padding-left: 10px;
+      }
+    }
+    .btn-theme {
+      @include lg {
+        border-radius: 25px;
+      }
+    }
+  }
+}

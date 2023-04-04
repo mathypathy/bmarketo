@@ -1,0 +1,119 @@
+@import '../../core/_colors.scss';
+
+header {
+  padding: 15px 0;
+  @include lg {
+    padding: 30px 0;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      "logo btn "
+      "menu menu";
+    @include lg {
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas: "logo menu";
+    }
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+  .menudiv {
+    @include lg {
+      
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background-color: transparent;
+    }
+    .hide {
+      background-color: $color-dark-2;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 0vw;
+      padding-top: 80px;
+      transform: translateX(0%);
+      transition: all 0.25s;
+      font-size: 20px;
+      overflow: hidden;
+
+      @include lg {
+        position: static;
+        width: 50%;
+        font-size: 16px;
+        padding: 0;
+        background-color: transparent;
+        color: $color-dark-2;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .link {
+        color: $color-white;
+        padding: 10px;
+        display: block;
+        margin: 10 20px;
+
+        @include lg {
+          color: $color-dark-2;
+          display: inline-block;
+          margin: 0 20px;
+          padding: 0;
+        }
+
+        &:hover {
+          color: $color-theme-1;
+        }
+      }
+    }
+    .menu-icons {
+      background-color: $color-dark-2;
+      position: fixed;
+      z-index: 9999;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      padding: 20px;
+      @include lg {
+        background-color: transparent;
+        position: static;
+        padding: 20px;
+      }
+      .link {
+        color: $color-dark-4;
+        margin-left: 15px;
+
+        @include lg {
+        }
+        &:hover {
+          color: $color-theme-1;
+          @include lg {
+            color: $color-dark-2;
+          }
+        }
+      }
+    }
+  }
+
+  .toggle {
+    grid-area: btn;
+    display: flex;
+    justify-content: end;
+    z-index: 1;
+    @include lg {
+      display: none;
+    }
+    .btn-white {
+      padding: 5px 15px;
+      font-size: 1.4rem;
+    }
+  }
+}

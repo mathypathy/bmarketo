@@ -1,0 +1,14 @@
+
+
+.open-menu {
+    width: 100vw !important;
+    opacity: 0.99;
+    transform: translateX(-100%);
+
+    @include lg{
+        width:50%!important;
+    }
+}
+
+
+

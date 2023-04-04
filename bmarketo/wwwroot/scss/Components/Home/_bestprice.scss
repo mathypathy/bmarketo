@@ -1,0 +1,111 @@
+@import '../../core/_colors.scss';
+
+
+.bestprice {
+  background-color: $color-theme-2;
+  text-align: left;
+  .container {
+    display: grid;
+    grid-template-rows: repeat(3, 150px);
+    justify-content: center;
+    height: 1300px;
+    gap: 230px;
+    padding-top: 100px;
+
+    @include lg {
+      grid-template-columns: repeat(3, 370px);
+      grid-template-rows: repeat(1, 400px);
+      height: 600px;
+      gap: 20px;
+    }
+    .boxes {
+      width: 369px;
+      text-align: left;
+      padding: 0;
+      @include lg {
+        background-color: $color-white;
+      }
+
+      .headline {
+        margin: 0;
+        text-align: center;
+        font-weight: $font-weight-bold;
+        @include lg {
+          text-align: left;
+          margin-top: 10px;
+          margin-left: 5px;
+        }
+      }
+      hr {
+        display: none;
+        
+        @include lg {
+          display: block;
+          margin: 0;
+          
+        }
+      }
+
+      .paragraph {
+        text-align: center;
+        margin: 0;
+        text-decoration: line-through;
+        @include lg {
+          display: inline;
+          margin-left: 5px;
+        }
+      }
+      .paragraph2 {
+        text-align: center;
+
+        @include lg {
+          display: inline;
+          text-align: left;
+        }
+      }
+    }
+
+    .infobox {
+      margin-top: 20px;
+      padding: 40px;
+      background-color: $color-white;
+      height: 310px;
+      width: 369px;
+      text-align: center;
+
+      @include lg {
+        padding: 50px;
+        margin: 0;
+        height: 400px;
+      }
+
+      .headline {
+        color: $color-theme-1;
+        font-weight: $font-weight-medium;
+        font-family: $font-roboto;
+      }
+
+      .paragraph {
+        font-size: 38px;
+        font-weight: $font-weight-bold;
+      }
+
+      .part-two {
+        font-weight: $font-weight-bold;
+      }
+
+      alink {
+        color: $color-dark-1;
+
+        &:hover {
+          color: $color-theme-1;
+          text-decoration: underline;
+        }
+      }
+
+      @include lg {
+        height: 400px;
+      }
+    }
+  }
+}
