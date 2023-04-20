@@ -1,0 +1,29 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<section class="loginform">
+    <div class="container">
+        <img src="images/logo.svg" />
+        <div class="form-group row">
+            <h6>Please Login to your account</h6>
+            <hr>
+            <label asp-for="Email">Email*<a link asp-controller="Register" asp-action="register" style="font-weight:bold; margin-left:20px;">Dont have account yet? Get One here!</a></label>
+            <div class="col-sm-10">
+                <input asp-for="Email" class="form-control" placeholder="Enter your email here">
+                <small><span asp-validation-for="Email" class="text-danger"></span></small>
+            </div>
+            <label asp-for="Password">Password*<a link href="#" style="margin-left:20px;">Forgot your password?</a></label>
+            <div class="col-sm-10">
+                <input asp-for="Password" class="form-control" placeholder="Enter your password here">
+                <small><span asp-validation-for="Password" class="text-danger"></span></small>
+            </div>
+        </div>
+        <input type="radio"><h6>Please keep me logged in.</h6>
+        <button type="submit" class="btn-theme">login</button>
+    </div>
+</section>
+
+
+

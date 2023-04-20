@@ -1,4 +1,9 @@
-﻿
+﻿@model HomeIndexViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+
 <!-- Showcase start-->
 <section class="showcase">
     <div class="container">
@@ -13,67 +18,7 @@
 <!-- Showcase end-->
 <!--Cardgrid start-->
 <section class="cardgrid">
-    <h1 class="headline">Best Collection</h1>
-    <div class="container">
-        <div class="card">
-            <img src="/Images/Placeholders/270x295.svg" class="topimg" alt="">
-            <div class="card-body">
-                <p class="head-text">product name</p>
-                <p class="paragraph">30.00$</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/Images/Placeholders/270x295.svg" class="topimg" alt="">
-            <div class="card-body">
-                <p class="head-text">product name</p>
-                <p class="paragraph">30.00$</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/Images/Placeholders/270x295.svg" class="topimg" alt="">
-            <div class="card-body">
-                <p class="head-text">product name</p>
-                <p class="paragraph">30.00$</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/Images/Placeholders/270x295.svg" class="topimg" alt="">
-            <div class="card-body">
-                <p class="head-text">product name</p>
-                <p class="paragraph">30.00$</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/Images/Placeholders/270x295.svg" class="topimg" alt="">
-            <div class="card-body">
-                <p class="head-text">product name</p>
-                <p class="paragraph">30.00$</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/Images/Placeholders/270x295.svg" class="topimg" alt="">
-            <div class="card-body">
-                <p class="head-text">product name</p>
-                <p class="paragraph">30.00$</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/Images/Placeholders/270x295.svg" class="topimg" alt="">
-            <div class="card-body">
-                <p class="head-text">product name</p>
-                <p class="paragraph">30.00$</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/Images/Placeholders/270x295.svg" class="topimg" alt="">
-            <div class="card-body">
-                <p class="head-text">product name</p>
-                <p class="paragraph">30.00$</p>
-            </div>
-        </div>
-    </div>
-    <button class="btn-load-more">LOAD MORE <i class="fa-solid fa-arrow-rotate-right" style="font-size:12px;"></i></button>
-
+    <partial name="/Views/Partials/_GridCollection.cshtml" model="@Model.BestCollection" />
 </section>
 <!--Cardgrid end-->
 <!--Best price starts-->

@@ -1,0 +1,14 @@
+﻿@model GridCollectionItemViewModel
+
+<a asp-controller="products" asp-action="details" asp-route-id="@Model.Id" class="card">
+    <img src="@Model.ImageUrl" class="topimg" alt="@Model.Title">
+    <div class="card-body">
+        <div class="title">
+        <p class="head-text">@Model.Title</p>
+        </div>
+        <div class="info">
+        <p class="paragraph">@Model.Price</p>
+        <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+    </div>
+</a>

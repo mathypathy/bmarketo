@@ -22,6 +22,7 @@ header {
     grid-area: logo;
   }
   .menudiv {
+      text-align:center;
     @include lg {
       
       display: flex;
@@ -43,6 +44,7 @@ header {
       font-size: 20px;
       overflow: hidden;
 
+      
       @include lg {
         position: static;
         width: 50%;

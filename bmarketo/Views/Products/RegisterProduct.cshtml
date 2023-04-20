@@ -1,0 +1,69 @@
+﻿@model ProductRegistrationViewModel
+@{
+    ViewData["Title"] = "Register Product";
+    var products = await productService.GetAllAsync();
+}
+
+<div class="d-flex justify-content-center">
+    <div class="col-6">
+        <h1>Add Your Product:</h1>
+        <form method="post" novalidate>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control"/>
+                <small><span asp-validation-for="Name" class="text-danger"></span></small>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <small><span asp-validation-for="Price" class="text-danger"></span></small>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control no-resize" rows="4" ></textarea>
+                <small><span asp-validation-for="Name" class="text-danger"></span></small>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ProductImage" class="form-label"></label>
+                <input type="file" asp-for="ProductImage" class="form-control" rows="4" />
+                <small><span asp-validation-for="ProductImage" class="text-danger"></span></small>
+            </div>
+            <div class="cardgrid mt-2">
+                <button type="submit">Add</button>
+            </div>
+        </form>
+        <h1>Added Products</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th >Name</th>
+                    <th >Price</th>
+                    <th >Description</th>
+                    <th >Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (products != null)
+                {
+                    foreach(var product in products)
+                    {
+                        <tr>
+                            <td>@product.Name</td>
+                            <td>@product.Price</td>
+                            <td>@product.Description</td>
+                            <td><img src="@product.ProductImage" /></td>
+                        </tr>
+                    }
+                  
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

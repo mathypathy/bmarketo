@@ -1,67 +1,110 @@
 @import '../../core/_colors.scss';
-
+@import '../../core/_fonts.scss';
+@import '../../core/_mixins.scss';
 
 .cardgrid {
-  text-align:center;
-  .headline{
-    text-align:center;
-    margin-top:20px;
-    font-weight:$font-weight-bold;
-    color: $color-dark-1;
-  }
-  .container {
-    display: grid;
-    margin-top: 20px;
-    grid-template-columns: repeat(2, 150px);
-    grid-template-rows: repeat(4,220px);
-    justify-content: center;
-    gap: 15px;
-   
+    text-align: center;
 
-    @include lg{
-      grid-template-columns: repeat(4, 270px);
-      grid-template-rows:repeat(2,355px);
-      
-    }
-
-  
-
-    .card {
-      border:none;
-      img {
-        
-       }
-
-      .head-text{
-        text-align:center;
-        font-size:16px;
+    .headline {
+        text-align: center;
+        margin-top: 20px;
+        font-weight: $font-weight-bold;
         color: $color-dark-1;
-        font-family: $font-roboto;
-        margin:0;
-        @include lg{
-        text-align:left;
-        
-          
-        }
-      }
-      .paragraph{
-        font-family: $font-roboto;
-        text-align:center;
-        font-size:12px;
-        @include lg{
-          text-align:left;
-          margin-top:0;
-          font-size:14px;
-          }
-        
-      }
-
-   
     }
 
-  }
-  .btn-load-more{
-    margin-top:30px;
-    margin-bottom:30px;
-  }
+    .breadcrumbs {
+        .breadcrumb {
+            display: none;
+
+            @include lg {
+                display: flex;
+                justify-content: center;
+                font-family: $font-poppins;
+
+                a {
+                    color: #000000;
+                }
+
+                a:hover {
+                    color: $color-theme-1;
+                }
+            }
+        }
+    }
+
+    .container {
+        display: grid;
+        margin-top: 20px;
+        grid-template-columns: repeat(2, 150px);
+        grid-template-rows: repeat(4,220px);
+        justify-content: center;
+        gap: 45px;
+        margin-bottom: 100px;
+
+
+        @include lg {
+            gap: 15px;
+            grid-template-columns: repeat(4, 270px);
+            grid-template-rows: repeat(2,355px);
+        }
+
+
+
+        .card {
+            border: none;
+          
+
+
+            .title{
+
+            .head-text {
+                text-align: center;
+                font-size: 16px;
+                color: $color-dark-1;
+                font-family: $font-roboto;
+                margin: 0;
+
+
+                @include lg {
+                }
+            }
+            }
+
+            .info{
+            .paragraph {
+                display: inline;
+                font-family: $font-roboto;
+                text-align: center;
+                font-size: 12px;
+                color: #000000;
+
+                @include lg {
+                    display: inline;
+                    text-align: left;
+                    margin-top: 0px;
+                    font-size: 14px;
+                    margin-bottom: 0px;
+                }
+            }
+            }
+        }
+
+        i {
+            display: none;
+
+            @include lg {
+                display: inline;
+                justify-content: end;
+
+                &:hover {
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    .btn-load-more {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
 }

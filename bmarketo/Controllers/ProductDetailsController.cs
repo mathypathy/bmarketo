@@ -2,11 +2,11 @@
 
 namespace bmarketo.Controllers
 {
-    public class LoginController : Controller
+    public class ProductDetailsController : Controller
     {
         public IActionResult Index()
         {
-            ViewData["Title"] = "Login";
+            ViewData["Title"] = "ProductDetail";
             return View();
         }
     }
