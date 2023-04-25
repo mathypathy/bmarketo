@@ -14,7 +14,6 @@
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\scss\Components\GridCollection\" />
     <Folder Include="wwwroot\scss\Components\Products\" />
-    <Folder Include="wwwroot\scss\Components\ProductDetails\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
       <PrivateAssets>all</PrivateAssets>

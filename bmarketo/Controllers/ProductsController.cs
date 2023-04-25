@@ -1,8 +1,12 @@
 ﻿using bmarketo.Services;
 using bmarketo.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bmarketo.Controllers;
+
+
+
 
 public class ProductsController : Controller
 {
@@ -13,12 +17,15 @@ public class ProductsController : Controller
         _productService = productService;
     }
 
+
+
+
     public IActionResult Index()
     {
         ViewData["Title"] = "Products";
         return View();
     }
-
+   
     public IActionResult RegisterProduct()
     {
         return View();
@@ -26,6 +33,8 @@ public class ProductsController : Controller
 
 
 
+
+  
     [HttpPost]
     public async Task<IActionResult> RegisterProduct(ProductRegistrationViewModel productRegistrationViewModel)
     {

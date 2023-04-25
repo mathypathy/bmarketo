@@ -12,7 +12,18 @@
                 <a class="link" asp-controller="Products" asp-action="Search">
                     <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
                 </a>
-                <a class="link" asp-controller="Register" asp-action="Login">Login</a>
+
+
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <a class="link" asp-controller="account" asp-action="index">@User.Identity?.Name</a>
+                    <a class="link" asp-controller="Logout" asp-action="index">Logout</a>
+                }
+                else
+                {
+                    <a class="link" asp-controller="Login" asp-action="index">Login</a>
+                }
+                
                 <a class="link" asp-controller="Cart" asp-action="index">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>

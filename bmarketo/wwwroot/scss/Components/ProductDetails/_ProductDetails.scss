@@ -1,0 +1,51 @@
+﻿@import '../../core/_colors.scss';
+@import '../../core/_mixins.scss';
+.container {
+
+    .parent {
+
+        @include lg {
+            display: flex;
+
+            .product_information {
+                margin-left: 120px;
+
+
+
+                .review_stars {
+                    color: $color-yellow;
+
+                    .number_of_reviews {
+                        color: $color-dark-1;
+                        display: inline;
+                        margin-left: 10px;
+                    }
+                }
+
+                h3 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+                .color_Picker{
+                    
+                 
+            
+                }
+
+            .big_Img {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .small_Images {
+
+
+        @include lg {
+            width: 500px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+    }
+}

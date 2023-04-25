@@ -9,7 +9,7 @@ namespace bmarketo.Models.Entities
         public string? Description { get; set; }
         [Column(TypeName="money")]
         public decimal Price { get; set; }
-        public string? ProductImage { get; set; } 
+        public string ProductImage { get; set; } = null!;
 
         public static implicit operator ProductModel(ProductEntity entity)
         {
@@ -19,7 +19,7 @@ namespace bmarketo.Models.Entities
                 Name = entity?.Name,
                 Description = entity?.Description,
                 Price = entity?.Price,
-                ProductImage = entity?.ProductImage
+                ProductImage = entity?.ProductImage,
 
             };
         }

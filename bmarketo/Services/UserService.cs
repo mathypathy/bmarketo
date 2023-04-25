@@ -18,14 +18,14 @@ public class UserService
    
     public async Task<bool>UserExist(Expression<Func<UserEntity,bool>>predicate)
     {
-        if (await _context.Users.AnyAsync(predicate))
+        if (await _context.TheUsers.AnyAsync(predicate))
             return true;
 
         return false;
     }
     public async Task<UserEntity> GetAsync(Expression<Func<UserEntity, bool>> predicate)
     {
-      var userEntity = await _context.Users.FirstOrDefaultAsync(predicate);
+      var userEntity = await _context.TheUsers.FirstOrDefaultAsync(predicate);
         return userEntity!;
     }
     public async Task<bool> RegisterAsync(RegisterViewModel registerViewModel)
@@ -37,7 +37,7 @@ public class UserService
                 ProfileEntity profileEntity = registerViewModel;
 
                 // create user
-                _context.Users.Add(userEntity);
+                _context.TheUsers.Add(userEntity);
                 await _context.SaveChangesAsync();
 
                 //Create user profile

@@ -52,52 +52,44 @@
 
         .card {
             border: none;
-          
 
 
-            .title{
 
-            .head-text {
-                text-align: center;
-                font-size: 16px;
-                color: $color-dark-1;
-                font-family: $font-roboto;
-                margin: 0;
+            .title {
+
+                .head-text {
+                    text-align: center;
+                    font-size: 16px;
+                    color: $color-dark-1;
+                    font-family: $font-roboto;
+                    margin: 0;
 
 
-                @include lg {
+                    @include lg {
+                    }
                 }
             }
-            }
 
-            .info{
-            .paragraph {
-                display: inline;
-                font-family: $font-roboto;
-                text-align: center;
-                font-size: 12px;
-                color: #000000;
-
-                @include lg {
+            .info {
+                .paragraph {
                     display: inline;
-                    text-align: left;
-                    margin-top: 0px;
-                    font-size: 14px;
-                    margin-bottom: 0px;
+                    font-family: $font-roboto;
+                    text-align: center;
+                    font-size: 12px;
+                    color: #000000;
+
+                    @include lg {
+                        display: inline;
+                        text-align: left;
+                        margin-top: 0px;
+                        font-size: 14px;
+                        margin-bottom: 0px;
+                    }
                 }
-            }
-            }
-        }
 
-        i {
-            display: none;
-
-            @include lg {
-                display: inline;
-                justify-content: end;
-
-                &:hover {
-                    display: inline;
+                .fa-cart-shopping {
+                    color: $color-dark-1;
+                  
                 }
             }
         }
