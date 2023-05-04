@@ -7,12 +7,12 @@ namespace bmarketo.ViewModel
     public class UserRegisterViewModel
     {
         [Display(Name = "First Name:")]
-        [RegularExpression(@"^[A - Za - z] + (?:\s[A - Za - z] +)?$")]
+        [RegularExpression(@"^[A-Za-z]+(?:\s[A-Za-z]+)?$")]
         [Required(ErrorMessage = "You must provide a first name.")]
         public string FirstName { get; set; } = null!;
 
         [Display(Name = "Last Name:")]
-        [RegularExpression(@"^[A - Za - z] + (?:\s[A - Za - z] +)?$")]
+        [RegularExpression(@"^[A-Za-z]+(?:\s[A-Za-z]+)?$", ErrorMessage = "Test")]
         [Required(ErrorMessage = "You must provide a last name.")]
         public string LastName { get; set; } = null!;
 
@@ -32,7 +32,7 @@ namespace bmarketo.ViewModel
         public string? Mobile { get; set; }
 
         [Display(Name = "Company:")]
-        public string? CompanyName { get; set; }
+        public string? Company { get; set; }
 
 
         [Display(Name = "Email:")]
@@ -42,14 +42,15 @@ namespace bmarketo.ViewModel
         public string Email { get; set; } = null!;
 
         [Display(Name = "Password:")]
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "You must provide a password.")]
         public string Password { get; set; } = null!;
 
 
         [Display(Name = "Confirm Password:")]
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")]
+        //[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")]
+        [Compare("Password", ErrorMessage = "Passwords do not match")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "You must confirm your password.")]
         public string ConfirmPassword { get; set; } = null!;
@@ -71,7 +72,7 @@ namespace bmarketo.ViewModel
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
                 PhoneNumber = viewModel.Mobile,
-                CompanyName = viewModel.CompanyName
+                Company = viewModel.Company
             };
         }
         public static implicit operator AdressEntity(UserRegisterViewModel viewModel)

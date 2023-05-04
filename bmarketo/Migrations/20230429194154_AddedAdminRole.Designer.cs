@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bmarketo.Contexts;
 
@@ -11,9 +12,11 @@ using bmarketo.Contexts;
 namespace bmarketo.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230429194154_AddedAdminRole")]
+    partial class AddedAdminRole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +54,7 @@ namespace bmarketo.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8226b767-d5aa-42c1-836e-8f619d069ae6",
+                            Id = "a77ef48e-4309-4aa0-b7b1-2f49a51a83ea",
                             Name = "SystemAdministrator",
                             NormalizedName = "SYSTEMADMINISTRATOR"
                         });
@@ -142,13 +145,6 @@ namespace bmarketo.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "66312b45-cf3d-4316-8bf8-0de3c91a71f2",
-                            RoleId = "8226b767-d5aa-42c1-836e-8f619d069ae6"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -247,24 +243,6 @@ namespace bmarketo.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "66312b45-cf3d-4316-8bf8-0de3c91a71f2",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "448de1ba-d914-4ca2-af26-1c1b8cd20e17",
-                            Email = "administrator@domain.com",
-                            EmailConfirmed = false,
-                            FirstName = " ",
-                            LastName = " ",
-                            LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEKj+mlj8MGailS0265wTcPH9HNntpOimd+tmyPjSI9y5By6KecN0XkyzZVSFMUsDaQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "d092a0e0-41ce-428c-ab28-963f3dac4a88",
-                            TwoFactorEnabled = false,
-                            UserName = "administrator@domain.com"
-                        });
                 });
 
             modelBuilder.Entity("bmarketo.Models.Entities.AdressEntity", b =>

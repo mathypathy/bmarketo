@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bmarketo.Contexts;
 
@@ -11,9 +12,11 @@ using bmarketo.Contexts;
 namespace bmarketo.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230429195318_SeedUser")]
+    partial class SeedUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +54,7 @@ namespace bmarketo.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8226b767-d5aa-42c1-836e-8f619d069ae6",
+                            Id = "a15ca813-c96a-42d5-968b-5ada012c4b0e",
                             Name = "SystemAdministrator",
                             NormalizedName = "SYSTEMADMINISTRATOR"
                         });
@@ -142,13 +145,6 @@ namespace bmarketo.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "66312b45-cf3d-4316-8bf8-0de3c91a71f2",
-                            RoleId = "8226b767-d5aa-42c1-836e-8f619d069ae6"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -251,19 +247,18 @@ namespace bmarketo.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "66312b45-cf3d-4316-8bf8-0de3c91a71f2",
+                            Id = "89fa7ea0-3499-469e-a2fd-5dbc2903a1dd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "448de1ba-d914-4ca2-af26-1c1b8cd20e17",
-                            Email = "administrator@domain.com",
+                            ConcurrencyStamp = "0e87509a-cabc-4b08-850d-ddc93313d9a1",
                             EmailConfirmed = false,
-                            FirstName = " ",
-                            LastName = " ",
+                            FirstName = "admin",
+                            LastName = "SystemAdministrator",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEKj+mlj8MGailS0265wTcPH9HNntpOimd+tmyPjSI9y5By6KecN0XkyzZVSFMUsDaQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECY+eAH+AaOh8rkHiZnuFQkEdsm1crIukBw1AV06Gvu3+OfmiN0sUgWCqhyh5d8Q1w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d092a0e0-41ce-428c-ab28-963f3dac4a88",
+                            SecurityStamp = "9e58dbcf-822f-4f32-b547-5a7d1504adda",
                             TwoFactorEnabled = false,
-                            UserName = "administrator@domain.com"
+                            UserName = "administrator"
                         });
                 });
 

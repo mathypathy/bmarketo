@@ -5,11 +5,11 @@ namespace bmarketo.Models.Entities
     public class ProductEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; } = null!;
+        public string? Name { get; set; } = null!;
         public string? Description { get; set; }
         [Column(TypeName="money")]
-        public decimal Price { get; set; }
-        public string ProductImage { get; set; } = null!;
+        public decimal? Price { get; set; }
+        public string? ProductImage { get; set; } = null!;
 
         public static implicit operator ProductModel(ProductEntity entity)
         {

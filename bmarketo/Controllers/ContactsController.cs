@@ -21,21 +21,29 @@ namespace bmarketo.Controllers
             return View();
         }
 
-
         [HttpPost]
         public async Task<IActionResult> RegisterContactForm(ContactFormViewModel contactFormViewModel)
         {
             if (ModelState.IsValid)
             {
-                if (await _contactFormService.CreateContactFormAsync(contactFormViewModel))
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                ModelState.AddModelError("", "Something went wrong when sending the form.");
+                    if (await _contactFormService.RegisterContactFormAsync(contactFormViewModel))
+                    {
+                        return RedirectToAction("index", "home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Something went wrong when creating the form. Try Again.");
+                    }
             }
 
+            ViewData["Title"] = "Register";
+            return View(contactFormViewModel);
 
-            return View();
+
+
+
+
+
         }
 
 

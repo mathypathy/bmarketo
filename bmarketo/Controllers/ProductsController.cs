@@ -1,4 +1,6 @@
-﻿using bmarketo.Services;
+﻿using bmarketo.Contexts;
+using bmarketo.Models;
+using bmarketo.Services;
 using bmarketo.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,22 +12,25 @@ namespace bmarketo.Controllers;
 
 public class ProductsController : Controller
 {
-
+  
     private readonly ProductService _productService;
     public ProductsController(ProductService productService)
     {
         _productService = productService;
+        
     }
 
 
 
 
-    public IActionResult Index()
+    public  IActionResult Index()
     {
         ViewData["Title"] = "Products";
+        
         return View();
     }
-   
+
+
     public IActionResult RegisterProduct()
     {
         return View();

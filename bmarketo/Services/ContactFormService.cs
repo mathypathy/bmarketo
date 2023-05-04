@@ -1,6 +1,9 @@
 ﻿using bmarketo.Contexts;
 using bmarketo.Models.Entities;
 using bmarketo.ViewModel;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq.Expressions;
 
 namespace bmarketo.Services;
 
@@ -12,11 +15,24 @@ public class ContactFormService
         _context = context;
     }
 
-    public async Task<bool> CreateContactFormAsync(ContactFormViewModel contactFormViewModel)
+    public async Task<ContactFormEntity> GetContactFormAsync(Expression<Func<ContactFormEntity, bool>> predicate)
+    {
+        var contactFormEntity = await _context.Contacts.FirstOrDefaultAsync(predicate);
+        return contactFormEntity!;
+
+
+    }
+    public async Task<bool> RegisterContactFormAsync(ContactFormViewModel contactFormViewModel)
     {
         try
         {
-            ContactFormEntity contactFormEntity = contactFormViewModel;
+            var contactFormEntity = new ContactFormEntity
+            {
+                FullName = contactFormViewModel.FullName,
+                Email = contactFormViewModel.Email,
+                PhoneNumber = contactFormViewModel.PhoneNumber,
+                Comment = contactFormViewModel.Comment
+            };
             _context.Contacts.Add(contactFormEntity);
             await _context.SaveChangesAsync();
             return true;
@@ -25,8 +41,5 @@ public class ContactFormService
         {
             return false;
         }
-
-
-
     }
 }

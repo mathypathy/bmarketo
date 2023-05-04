@@ -1,7 +1,13 @@
-﻿
+﻿@model ProductRegistrationViewModel 
 @{
     ViewData["Title"] = "Products";
-
-    
+    var products = await productService.GetAllAsync();
 }
 
+@if(Model is not null){
+    foreach(var item in products)
+    {
+        <partial name="/Views/Partials/_GridCollectionItem.cshtml" model="products" />
+    };
+
+}

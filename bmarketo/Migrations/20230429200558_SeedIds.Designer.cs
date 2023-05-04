@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bmarketo.Contexts;
 
@@ -11,9 +12,11 @@ using bmarketo.Contexts;
 namespace bmarketo.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230429200558_SeedIds")]
+    partial class SeedIds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +54,7 @@ namespace bmarketo.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8226b767-d5aa-42c1-836e-8f619d069ae6",
+                            Id = "1",
                             Name = "SystemAdministrator",
                             NormalizedName = "SYSTEMADMINISTRATOR"
                         });
@@ -146,8 +149,8 @@ namespace bmarketo.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "66312b45-cf3d-4316-8bf8-0de3c91a71f2",
-                            RoleId = "8226b767-d5aa-42c1-836e-8f619d069ae6"
+                            UserId = "1",
+                            RoleId = "1"
                         });
                 });
 
@@ -251,19 +254,18 @@ namespace bmarketo.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "66312b45-cf3d-4316-8bf8-0de3c91a71f2",
+                            Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "448de1ba-d914-4ca2-af26-1c1b8cd20e17",
-                            Email = "administrator@domain.com",
+                            ConcurrencyStamp = "3b88d416-3175-400a-937c-baf2583ece10",
                             EmailConfirmed = false,
-                            FirstName = " ",
-                            LastName = " ",
+                            FirstName = "admin",
+                            LastName = "SystemAdministrator",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEKj+mlj8MGailS0265wTcPH9HNntpOimd+tmyPjSI9y5By6KecN0XkyzZVSFMUsDaQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKl5Ycfz0mK0Fwmluc+IQySlFW2roIXfZKUBQEFKsc52MzfzLBjH/UG6v1O6F9HZCw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d092a0e0-41ce-428c-ab28-963f3dac4a88",
+                            SecurityStamp = "312fd37b-79a4-47a0-9be8-33efcbed943e",
                             TwoFactorEnabled = false,
-                            UserName = "administrator@domain.com"
+                            UserName = "administrator"
                         });
                 });
 

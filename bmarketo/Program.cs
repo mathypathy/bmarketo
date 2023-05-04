@@ -29,12 +29,20 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(
         x.SignIn.RequireConfirmedAccount = false;
         x.Password.RequiredLength = 8;
         x.User.RequireUniqueEmail = true;
-    }).AddEntityFrameworkStores<DataContext>();
+    })
+    .AddEntityFrameworkStores<DataContext>()
+    .AddClaimsPrincipalFactory<CustomClaimsPrincipalFactory>();
+
+
+
+
+
 builder.Services.ConfigureApplicationCookie(x =>
 {
     x.LoginPath = "/account";
     x.LogoutPath = "/home";
     x.AccessDeniedPath = "/denied";
+   
 });
 
 

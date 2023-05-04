@@ -5,6 +5,8 @@ namespace bmarketo.ViewModel
 {
     public class ProductRegistrationViewModel
     {
+        public int Id { get; set; }
+      
         [Required(ErrorMessage = "You have to name the product")]
         [Display(Name = "*Product Name:")]
         public string Name { get; set; } = null!;

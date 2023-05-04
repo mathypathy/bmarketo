@@ -73,7 +73,7 @@ namespace bmarketo.Controllers
             if (ModelState.IsValid)
             {
                 if(await _userService.LoginAsync(loginViewModel)){
-                    return RedirectToAction("Account", "Account");
+                    return RedirectToAction("account", "Account");
 
                 }
                 ModelState.AddModelError("", "That Email does not exist. Please Try again.");

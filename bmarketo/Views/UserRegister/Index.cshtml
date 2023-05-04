@@ -37,6 +37,13 @@
             <small><span asp-validation-for="City" class="text-danger"></span></small>
         </div>
         <div class="mb-3">
+            <label asp-for="Company" class="form-label">Company:</label>
+            <input asp-for="Company" type="text" class="form-control" />
+            <small><span asp-validation-for="Company" class="text-danger"></span></small>
+        </div>
+
+
+        <div class="mb-3">
             <label asp-for="Password" class="form-label">Password:</label>
             <input asp-for="Password" class="form-control" />
             <small><span asp-validation-for="Password" class="text-danger"></span></small>
@@ -59,4 +66,4 @@
         </div>
         <button type="submit" class="btn-theme">Join the club!</button>
     </form>
-</div>+
+</div>

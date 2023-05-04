@@ -11,12 +11,14 @@ namespace bmarketo.Services
         private readonly UserManager<AppUser> _userManager;
         private readonly AddressService _addressService;
         private readonly SignInManager<AppUser> _SignInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AuthenticationService(UserManager<AppUser> userManager, AddressService addressService, SignInManager<AppUser> signInManager)
+        public AuthenticationService(UserManager<AppUser> userManager, AddressService addressService, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _addressService = addressService;
             _SignInManager = signInManager;
+            _roleManager = roleManager;
         }
 
         public async Task<bool> UserAlreadyExistsAsync(Expression<Func<AppUser,bool>> expression)
@@ -27,9 +29,25 @@ namespace bmarketo.Services
         public async Task<bool> RegisterUserAsync(UserRegisterViewModel viewModel)
         {
             AppUser appUser = viewModel;
+
+            var roleName = "user";
+            
+            if(!await _roleManager.Roles.AnyAsync())
+            {
+                await _roleManager.CreateAsync(new IdentityRole("admin"));
+                await _roleManager.CreateAsync(new IdentityRole("user"));
+            }
+
+            if(!await _userManager.Users.AnyAsync()){
+                roleName = "admin";
+            }
+
+
             var result = await _userManager.CreateAsync(appUser, viewModel.Password);
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(appUser, roleName);
+
                 var adressEntity = await _addressService.GetOrCreateAsync(viewModel);
                 if (adressEntity != null)
                 {
