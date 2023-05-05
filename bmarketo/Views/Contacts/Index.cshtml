@@ -8,7 +8,7 @@
             <h3>Do you have any questions? contact us here:</h3>
             <hr>
 
-            <form method="post" novalidate>
+            <form method="post" novalidate asp-action="RegisterContactForm">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group row">
                     <label asp-for="FullName">Your Name*</label>

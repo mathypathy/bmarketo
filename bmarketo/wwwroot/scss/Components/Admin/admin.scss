@@ -1,0 +1,33 @@
+﻿.backOffice {
+    margin-top: 100px;
+    display: block;
+    justify-content: center;
+    margin-bottom:365px;
+
+    .container {
+        display: flex;
+        justify-content: center;
+
+
+        .officeMenu {
+            display: block;
+            justify-content: center;
+            text-align: center;
+            height: 300px;
+
+            hr{
+                margin-left:160px;
+                width:100px;
+            }
+
+            .btn-theme {
+                display: block;
+                margin: 10px;
+                height: 50px;
+                width: 400px;
+            }
+
+          
+        }
+    }
+}

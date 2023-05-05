@@ -23,8 +23,18 @@ namespace bmarketo.Contexts.Identity
 
             claimsIdentity.AddClaim(new Claim("DisplayName", $"{user.FirstName} {user.LastName}"));
 
+            var AllRoles = await UserManager.GetRolesAsync(user);
+            foreach (var role in AllRoles)
+            {
+                claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, role));
+            }
+
 
             return claimsIdentity;
         }
+
+        
+
+
     }
 }

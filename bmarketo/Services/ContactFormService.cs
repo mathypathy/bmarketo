@@ -26,17 +26,14 @@ public class ContactFormService
     {
         try
         {
-            var contactFormEntity = new ContactFormEntity
-            {
-                FullName = contactFormViewModel.FullName,
-                Email = contactFormViewModel.Email,
-                PhoneNumber = contactFormViewModel.PhoneNumber,
-                Comment = contactFormViewModel.Comment
-            };
+            ContactFormEntity contactFormEntity = contactFormViewModel;
+
             _context.Contacts.Add(contactFormEntity);
             await _context.SaveChangesAsync();
             return true;
         }
+     
+
         catch
         {
             return false;
