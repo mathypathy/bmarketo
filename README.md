@@ -1,3 +1,8 @@
+05/05/2023 4th commit. 
+Fixed the issue when using the Admin login. Now everything works as expected. 
+Started the design for the "Back office" view used for the admin. (not finished). 
+
+
 04/05/2023 3rd commit. 
 Fixed some errors, made it possible to login as different users using ASPnetIdentity ( That part is still not done yet, Have an issue when logging in as admin - gets access denied for some unclear reason, so ill need to fix that). 
 Started on the ProductDetail-design and made it possible to click on different "products" and get to that product-id. 
