@@ -22,6 +22,7 @@
       width: 369px;
       text-align: left;
       padding: 0;
+   
       @include lg {
         background-color: $color-white;
       }

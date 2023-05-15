@@ -27,7 +27,26 @@ public class HomeController : Controller
 
             },
 
-         
+            PercentageOff = new GridCollectionViewModel
+            {
+                Title = "Percentage Off", 
+                GridItems = new List <GridCollectionItemViewModel>
+                {
+                    new GridCollectionItemViewModel {Id = "9", Name = "Apple Watch Collection", OldPrice = 130, Price = 110, ProductImage = "/Images/Placeholders/369x310"},
+                   
+                }
+            },
+            PercentageOff2 = new GridCollectionViewModel
+            {
+                Title = "Percentage Off",
+                GridItems = new List<GridCollectionItemViewModel>
+                {
+                    new GridCollectionItemViewModel {Id = "10", Name = "Apple Watch Collection", OldPrice = 130, Price = 110, ProductImage = "/Images/Placeholders/369x310"},
+
+                }
+            },
+
+
 
         };
     

@@ -31,6 +31,7 @@ public class ProductsController : Controller
     }
 
 
+    [Authorize(Roles ="admin")]
     public IActionResult RegisterProduct()
     {
         return View();
@@ -39,7 +40,7 @@ public class ProductsController : Controller
 
 
 
-  
+    [Authorize(Roles = "admin")]
     [HttpPost]
     public async Task<IActionResult> RegisterProduct(ProductRegistrationViewModel productRegistrationViewModel)
     {

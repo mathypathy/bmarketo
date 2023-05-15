@@ -22,30 +22,11 @@
 </section>
 <!--Cardgrid end-->
 <!--Best price starts-->
-<section class="bestprice">
+<section class="bestprice">    
     <div class="container">
-        <div class="boxes">
-            <img src="Images/Placeholders/369x310.svg" alt="">
-            <p class="headline">Product name</p>
-            <hr>
-            <p class="paragraph">$50.00</p>
-            <p class="paragraph2">$30.00</p>
-        </div>
-        <div class="infobox">
-            <p class="headline">UP TO </p>
-            <p class="paragraph">50 % OFF</p>
-            <p class="part-two">Get The Best Price</p>
-            <p class="part-three">Get 50 percent off when buying 3 items!</p>
-            <alink href="#">Discover More!</a>
-        </div>
-        <div class="boxes">
-            <img src="Images/Placeholders/369x310.svg" alt="">
-            <p class="headline">Product name</p>
-            <hr>
-            <p class="paragraph">$50.00</p>
-            <p class="paragraph2">$30.00</p>
-        </div>
-
+        <partial name="/Views/Partials/_PercentageOffCollection.cshtml" model="@Model.PercentageOff" />
+        <partial name="/Views/Partials/_InfoBoxPartial.cshtml"/>
+        <partial name="/Views/Partials/_PercentageOffCollection2.cshtml" model="@Model.PercentageOff2" />
     </div>
 </section>
 <!--Best price ends-->

@@ -9,5 +9,6 @@
         public string Description { get; set; } = null!;
         public decimal? OldPrice { get; set; }
 
+
     }
 }

@@ -30,12 +30,12 @@ namespace bmarketo.Services
         {
             AppUser appUser = viewModel;
 
-            var roleName = "user";
+            var roleName = "USER";
             
             if(!await _roleManager.Roles.AnyAsync())
             {
                 await _roleManager.CreateAsync(new IdentityRole("admin"));
-                await _roleManager.CreateAsync(new IdentityRole("user"));
+                await _roleManager.CreateAsync(new IdentityRole("USER"));
             }
 
             if(!await _userManager.Users.AnyAsync()){
