@@ -11,7 +11,8 @@ namespace bmarketo.ViewModel
         [Display(Name = "*Product Name:")]
         public string Name { get; set; } = null!;
 
-        public string ProductImage { get; set; } = null!;
+        [DataType(DataType.Upload)]
+        public IFormFile? ProductImage { get; set; }
 
         [Display(Name = "Product Description:")]
         public string? Description { get; set; } = null!;
@@ -23,13 +24,29 @@ namespace bmarketo.ViewModel
 
         public static implicit operator ProductEntity(ProductRegistrationViewModel productRegistrationViewModel)
         {
-            return new ProductEntity
+
+            var entity = new ProductEntity
             {
+                Id = productRegistrationViewModel.Id,
                 Name = productRegistrationViewModel.Name,
-                Description = productRegistrationViewModel.Description,
                 Price = productRegistrationViewModel.Price,
-                ProductImage = productRegistrationViewModel.ProductImage,
-            };
+                Description = productRegistrationViewModel.Description,
+
+            }; 
+            if(productRegistrationViewModel.ProductImage != null )
+            {
+                entity.ProductImage = $"{productRegistrationViewModel.Id}_{productRegistrationViewModel.ProductImage?.FileName}";
+            }
+            return entity;
+
+
+            //return new ProductEntity
+            //{
+            //    Name = productRegistrationViewModel.Name,
+            //    Description = productRegistrationViewModel.Description,
+            //    Price = productRegistrationViewModel.Price,
+            //    ProductImage = productRegistrationViewModel.ProductImage,
+            //};
         }
 
 

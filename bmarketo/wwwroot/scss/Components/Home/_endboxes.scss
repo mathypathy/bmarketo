@@ -10,9 +10,11 @@
     text-align: left;
     }
     .boxes{     
+    
         .productname{
             @include lg{
                 font-weight:$font-weight-bold;
+                color:black;
             }
         }
         .info{

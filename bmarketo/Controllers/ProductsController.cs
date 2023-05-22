@@ -38,7 +38,7 @@ public class ProductsController : Controller
     }
 
 
-
+ //FIXA HÄR UNDER
 
     [Authorize(Roles = "admin")]
     [HttpPost]
@@ -46,9 +46,12 @@ public class ProductsController : Controller
     {
         if (ModelState.IsValid)
         {
-            if(await _productService.CreateAsync(productRegistrationViewModel))
+           var product = await _productService.CreateAsyncTwo(productRegistrationViewModel);
+            if(product != null)
             {
-                return RedirectToAction("Index", "Products");
+                if(productRegistrationViewModel.ProductImage != null)
+                    await _productService.UploadImageAsync(product, productRegistrationViewModel.ProductImage);
+                return RedirectToAction("Index", "Admin");
             }
             ModelState.AddModelError("", "Something went wrong when making the product.");
         }

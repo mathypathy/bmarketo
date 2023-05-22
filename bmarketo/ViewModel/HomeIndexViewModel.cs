@@ -7,5 +7,7 @@
         public GridCollectionViewModel PercentageOff { get; set; } = null!;
         public GridCollectionViewModel PercentageOff2 { get; set; } = null!;
         public GridCollectionViewModel TopSelling { get; set; } = null!;
+
+        public GridCollectionViewModel EndBoxes { get; set; } = null!;
     }
 } 

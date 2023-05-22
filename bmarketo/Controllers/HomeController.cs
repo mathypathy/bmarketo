@@ -1,5 +1,6 @@
 ﻿using bmarketo.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace bmarketo.Controllers;
 
@@ -7,7 +8,29 @@ public class HomeController : Controller
 {
     public IActionResult Index()
     {
-        var viewModel = new HomeIndexViewModel
+
+
+        // Prova detta imorn, hämta även datacontext, glöm ej. 
+        //var viewModel = new HomeIndexViewModel
+        //{
+        //    BestCollection = new GridCollectionViewModel
+        //    {
+        //        Title = "Best Collection",
+        //        BreadCrumbs = new List<string> { "All", "Bag", "Dress", "Decoration", "Essentials", "Watches" },
+        //        GridItems = _dbContext.Products.Select(p => new GridCollectionItemViewModel
+        //        {
+        //            Id = p.Id.ToString(),
+        //            Name = p.Name,
+        //            Price = p.Price,
+        //            ProductImage = p.ImageUrl
+        //        }).ToList()
+        //    },
+
+
+
+
+
+            var viewModel = new HomeIndexViewModel
         {
             BestCollection = new GridCollectionViewModel
             {
@@ -46,7 +69,30 @@ public class HomeController : Controller
                 }
             },
 
+            TopSelling = new GridCollectionViewModel
+            {
+                Title = "Top Selling", 
+                GridItems = new List <GridCollectionItemViewModel>
+                { 
+                    new GridCollectionItemViewModel {Id = "11", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"},
+                    new GridCollectionItemViewModel {Id = "12", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"},
+                    new GridCollectionItemViewModel {Id = "13", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"},
+                    new GridCollectionItemViewModel {Id = "14", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"},
+                    new GridCollectionItemViewModel {Id = "15", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"},
+                    new GridCollectionItemViewModel {Id = "16", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"}
+                }
+            },
 
+            EndBoxes = new GridCollectionViewModel
+            {
+                Title ="End boxes", 
+                GridItems = new List <GridCollectionItemViewModel>
+                {
+                    new GridCollectionItemViewModel {Id = "17", Name="Apple Watch Collection", Price = 80, ProductImage="/Images/Placeholders/370x295.svg"},
+                    new GridCollectionItemViewModel {Id = "18", Name="Apple Watch Collection", Price = 80, ProductImage="/Images/Placeholders/370x295.svg"},
+                    new GridCollectionItemViewModel {Id = "19", Name="Apple Watch Collection", Price = 80, ProductImage="/Images/Placeholders/370x295.svg"}
+                }
+            }
 
         };
     

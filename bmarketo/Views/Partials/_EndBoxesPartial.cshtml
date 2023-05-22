@@ -1,0 +1,9 @@
+﻿@model GridCollectionItemViewModel
+<a asp-controller="ProductDetails" asp-action="Index" asp-route-id="@Model.Id">
+<div class="boxes">
+    <img src=@Model.ProductImage alt="">
+    <p class="productname">@Model.Name</p>
+    <p class="info">@Model.Description</p>
+    <p class="comment">COMMENTS</p>
+</div>
+</a>

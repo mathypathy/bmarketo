@@ -35,75 +35,13 @@
     <h1>Top Selling Products This Week</h1>
     <hr>
     <div class="container">
-        <div class="product-box">
-            <img src="Images/Placeholders/270x295.svg" alt="">
-            <h3>Product name</h3>
-            <p class="old">$120</p>
-            <p class="new">$80</p>
-            <hr>
-        </div>
-        <div class="product-box">
-            <img src="Images/Placeholders/270x295.svg" alt="">
-            <h3>Product name</h3>
-            <p class="old">$124</p>
-            <p class="new">$25</p>
-            <hr>
-        </div>
-        <div class="product-box">
-            <img src="Images/Placeholders/270x295.svg" alt="">
-            <h3>Product name</h3>
-            <p class="old">$100</p>
-            <p class="new">$40</p>
-            <hr>
-        </div>
-        <div class="product-box">
-            <img src="Images/Placeholders/270x295.svg" alt="">
-            <h3>Product name</h3>
-            <p class="old">$126</p>
-            <p class="new">$85</p>
-            <hr>
-        </div>
-        <div class="product-box">
-            <img src="Images/Placeholders/270x295.svg" alt="">
-            <h3>Product name</h3>
-            <p class="old">$1120</p>
-            <p class="new">$830</p>
-            <hr>
-        </div>
-        <div class="product-box">
-            <img src="Images/Placeholders/270x295.svg" alt="">
-            <h3>Product name</h3>
-            <p class="old">$146</p>
-            <p class="new">$98</p>
-            <hr>
-        </div>
-        <div class="buttons">
-            <button class="left"><</button>
-            <button class="right">></button>
-        </div>
+      <partial name="/Views/Partials/_TopSellingCollection.cshtml" model="@Model.TopSelling" />
     </div>
 </section>
 <!-- Top selling products ends-->
 <!-- Endboxes starts-->
 <section class="end-boxes">
-    <div class="boxes">
-        <img src="Images/Placeholders/370x295.svg" alt="">
-        <p class="productname">Product name</p>
-        <p class="info">product info</p>
-        <p class="comment">COMMENTS</p>
-    </div>
-    <div class="boxes">
-        <img src="Images/Placeholders/370x295.svg" alt="">
-        <p class="productname">Product name</p>
-        <p class="info">product info</p>
-        <p class="comment">COMMENTS</p>
-    </div>
-    <div class="boxes">
-        <img src="Images/Placeholders/370x295.svg" alt="">
-        <p class="productname">Product name</p>
-        <p class="info">product info</p>
-        <p class="comment">COMMENTS</p>
-    </div>
+<partial name="/Views/Partials/_EndBoxesCollection.cshtml" model="@Model.EndBoxes"/>
 </section>
 <!-- Endboxes ends-->
 <!--subscribe starts-->

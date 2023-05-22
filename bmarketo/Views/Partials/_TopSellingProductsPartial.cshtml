@@ -1,0 +1,10 @@
+﻿@model GridCollectionItemViewModel
+<a asp-controller="ProductDetails" asp-action="Index" asp-route-id="@Model.Id" class="card">
+<div class="product-box">
+    <img src="Images/Placeholders/270x295.svg" alt="">
+    <h3>@Model.Name</h3>
+    <p class="old">$@Model.OldPrice</p>
+    <p class="new">$@Model.Price</p>
+    <hr>
+</div>
+</a>

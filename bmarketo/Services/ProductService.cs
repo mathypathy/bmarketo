@@ -3,17 +3,23 @@ using bmarketo.Models.Entities;
 using bmarketo.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using bmarketo.Models;
+using bmarketo.Repos;
 
 namespace bmarketo.Services
 {
     public class ProductService
     {
         private readonly DataContext _context;
-        public ProductService(DataContext context)
+        private readonly ProductRepository _repository;
+        private readonly IWebHostEnvironment _webhostEnviroment;
+        public ProductService(DataContext context, ProductRepository repository, IWebHostEnvironment webHostEnvironment)
         {
             _context = context; 
+            _repository = repository;
+            _webhostEnviroment = webHostEnvironment;
         }
 
+        
         public async Task<bool> CreateAsync(ProductRegistrationViewModel productRegistrationViewModel)
         {
             try
@@ -28,8 +34,37 @@ namespace bmarketo.Services
             {
                 return false;
             }
-           
-            
+
+
+        }
+
+        public async Task<ProductModel>CreateAsyncTwo(ProductEntity entity)
+        {
+            var _entity = await _repository.GetAsync(x=> x.Id == entity.Id);
+            if (_entity == null)
+            {
+                _entity = await _repository.AddAsync(entity);
+                if (_entity != null)
+                    return _entity;
+            }
+            return null!;
+        }
+
+        public async Task<bool> UploadImageAsync(ProductModel product, IFormFile image)
+        {
+            try
+            {
+
+
+                string imagePath = $"{_webhostEnviroment.WebRootPath}images/products /{product.ProductImage}";
+                await image.CopyToAsync(new FileStream(imagePath, FileMode.Create));
+                return true;
+
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<IEnumerable<ProductModel>> GetAllAsync()
@@ -46,7 +81,7 @@ namespace bmarketo.Services
             return products;
         }
 
-       
+     
 
 
 

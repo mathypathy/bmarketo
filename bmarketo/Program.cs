@@ -22,7 +22,7 @@ builder.Services.AddScoped<AddressRepository>();
 builder.Services.AddScoped<UserAddressRepository>();
 builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<AuthenticationService>();
-
+builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddIdentity<AppUser, IdentityRole>(
     x =>
     {
