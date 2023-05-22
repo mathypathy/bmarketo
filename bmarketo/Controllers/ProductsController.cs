@@ -14,10 +14,11 @@ public class ProductsController : Controller
 {
   
     private readonly ProductService _productService;
+ 
     public ProductsController(ProductService productService)
     {
         _productService = productService;
-        
+       
     }
 
 
@@ -32,9 +33,13 @@ public class ProductsController : Controller
 
 
     [Authorize(Roles ="admin")]
-    public IActionResult RegisterProduct()
+    public async Task<IActionResult> RegisterProduct()
     {
-        return View();
+        var viewmodel = new ProductRegistrationViewModel
+        {
+            Products = await _productService.GetAllAsync()
+        };
+        return View(viewmodel);
     }
 
 

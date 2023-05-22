@@ -56,7 +56,7 @@ namespace bmarketo.Services
             {
 
 
-                string imagePath = $"{_webhostEnviroment.WebRootPath}images/products /{product.ProductImage}";
+                string imagePath = $"{_webhostEnviroment.WebRootPath}/Images/products/{product.ProductImage}";
                 await image.CopyToAsync(new FileStream(imagePath, FileMode.Create));
                 return true;
 
@@ -69,9 +69,9 @@ namespace bmarketo.Services
 
         public async Task<IEnumerable<ProductModel>> GetAllAsync()
         {
-            var products = new List<ProductModel>();
+            
             var items = await _context.Products.ToListAsync();
-
+            var products = new List<ProductModel>();
             foreach(var item in items)
             {
                 ProductModel productModel = item;
@@ -81,7 +81,7 @@ namespace bmarketo.Services
             return products;
         }
 
-     
+   
 
 
 

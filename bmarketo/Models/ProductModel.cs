@@ -1,5 +1,6 @@
 ﻿
 using bmarketo.ViewModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace bmarketo.Models
 {
@@ -10,7 +11,8 @@ namespace bmarketo.Models
         public string Description { get; set; } = null!;
         public decimal? Price { get; set; }
 
-        public string ProductImage { get; set; } = null!;
+        
+        public string? ProductImage { get; set; } = null!;
     }
 
 

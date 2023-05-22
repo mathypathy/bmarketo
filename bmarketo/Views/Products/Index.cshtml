@@ -1,13 +1,6 @@
-﻿@model ProductRegistrationViewModel 
-@{
-    ViewData["Title"] = "Products";
-    var products = await productService.GetAllAsync();
-}
+﻿<div class="container">
+   
+    <!-- LISTA UT ALL PRODUKTER HÄR, gör dom till grid i scss sen-->
 
-@if(Model is not null){
-    foreach(var item in products)
-    {
-        <partial name="/Views/Partials/_GridCollectionItem.cshtml" model="products" />
-    };
 
-}
+</div>

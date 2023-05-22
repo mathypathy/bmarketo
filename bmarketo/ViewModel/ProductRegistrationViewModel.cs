@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using bmarketo.Models;
 using bmarketo.Models.Entities;
 
 namespace bmarketo.ViewModel
 {
     public class ProductRegistrationViewModel
     {
+        public IEnumerable<ProductModel> Products { get; set; } = new List<ProductModel>();
         public int Id { get; set; }
       
         [Required(ErrorMessage = "You have to name the product")]
@@ -35,7 +37,7 @@ namespace bmarketo.ViewModel
             }; 
             if(productRegistrationViewModel.ProductImage != null )
             {
-                entity.ProductImage = $"{productRegistrationViewModel.Id}_{productRegistrationViewModel.ProductImage?.FileName}";
+                entity.ProductImage = $"{Guid.NewGuid()}_{productRegistrationViewModel.ProductImage?.FileName}";
             }
             return entity;
 
@@ -53,6 +55,7 @@ namespace bmarketo.ViewModel
 
 
     }
+
 }
 
 

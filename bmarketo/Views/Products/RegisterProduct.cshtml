@@ -1,7 +1,8 @@
 ﻿@model ProductRegistrationViewModel
 @{
     ViewData["Title"] = "Register Product";
-    var products = await productService.GetAllAsync();
+    //var products = await productService.GetAllAsync();
+    
 }
 
 <div class="d-flex justify-content-center" style="margin-bottom:540px">
@@ -48,19 +49,18 @@
                 </tr>
             </thead>
             <tbody>
-                @if (products != null)
-                {
-                    foreach(var product in products)
+              
+                    @foreach(var product in Model.Products)
                     {
                         <tr>
                             <td>@product.Name</td>
-                            <td>@product.Price</td>
-                            <td>@product.Description</td>
-                            <td><img src="@product.ProductImage" /></td>
+                        <td>@product.Price</td>
+                        <td>@product.Description</td>
+                        <td><img src="~/Images/products/@product.ProductImage" alt="@product.Name" /></td>
                         </tr>
                     }
                   
-                }
+                
             </tbody>
         </table>
 
