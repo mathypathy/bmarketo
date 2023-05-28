@@ -1,11 +1,21 @@
-﻿@model GridCollectionItemViewModel
-<a asp-controller="ProductDetails" asp-action="Index" asp-route-id="@Model.Id" class="card">
-    <div class="boxes">
-        <img src="Images/Placeholders/369x310.svg" alt="">
-        <p class="headline">@Model.Name</p>
-        <hr>
-        <p class="paragraph">$@Model.OldPrice</p>
-        <p class="paragraph2">$@Model.Price</p>
-    </div>
+﻿@model HomeIndexViewModel
 
-</a>
+
+        @foreach (var product in Model.PercentageOff.GridItems)
+        {
+            <a asp-controller="ProductDetails" asp-action="Index" asp-route-id="@product.Id" class="card" style="width: 272px; color: black;">
+                <img src="~/Images/products/@product.ProductImage" class="topimg" alt="@product.Name" style="width: 270px; height: 295px;">
+                <div class="card-body">
+                    <div class="title">
+                        <p class="head-text" style="font-weight:bold; font-size:22px;">@product.Name</p>
+                    </div>
+                    <div class="info">
+                        <p>@product.Description</p>
+                        <p class="paragraph">$@product.Price</p>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+            </a>
+        }
+
+    

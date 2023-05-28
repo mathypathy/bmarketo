@@ -13,10 +13,9 @@ using System.Security.Claims;
 
 namespace bmarketo.Controllers
 {
-    // I didnt get the authorize to work properly so if you
-    // Remove authorize you can see the backoffice functions.
-    // If you dont remove it you'll get "Access Denied". 
-    // You will find the functions at /admin in the browser.
+    
+  
+    // You will find the admin functions (or the "backoffice" )at /admin in the browser when loggin in as admin (admin@domain.com, pass: BytMig123!).
     // 05/05/23, Added a claim that got it to work.
     // still gonna leave this here if future problems would happen.
 

@@ -18,16 +18,16 @@
 <!-- Showcase end-->
 <!--Cardgrid start-->
 <section class="cardgrid">
-    <partial name="/Views/Partials/_GridCollection.cshtml" model="@Model.BestCollection" />
+    <partial name="/Views/Partials/_PopularPartial.cshtml"/>
 </section>
 <!--Cardgrid end-->
 <!--Best price starts-->
-<section class="bestprice">    
+<section class="bestprice">
+    <partial name="/Views/Partials/_InfoBoxPartial.cshtml" />
     <div class="container">
-        <partial name="/Views/Partials/_PercentageOffCollection.cshtml" model="@Model.PercentageOff" />
-        <partial name="/Views/Partials/_InfoBoxPartial.cshtml"/>
-        <partial name="/Views/Partials/_PercentageOffCollection2.cshtml" model="@Model.PercentageOff2" />
+        <partial name="/Views/Partials/_PercentageOffBox.cshtml" />
     </div>
+ 
 </section>
 <!--Best price ends-->
 <!-- Top selling products start-->

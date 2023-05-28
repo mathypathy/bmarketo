@@ -4,6 +4,8 @@
 .bestprice {
   background-color: $color-theme-2;
   text-align: left;
+
+
   .container {
     display: grid;
     grid-template-rows: repeat(3, 150px);
@@ -14,7 +16,7 @@
 
     @include lg {
       grid-template-columns: repeat(3, 370px);
-      grid-template-rows: repeat(1, 400px);
+      grid-template-rows: 400px;
       height: 600px;
       gap: 20px;
     }

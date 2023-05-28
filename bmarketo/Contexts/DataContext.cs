@@ -17,18 +17,34 @@ public class DataContext : IdentityDbContext<AppUser>
     public DbSet<ProfileEntity> Profiles { get; set; }
 
     public DbSet<ContactFormEntity> Contacts { get; set; }
-
+    public DbSet<TagEntity> Tags { get; set; }
     public DbSet<ProductEntity> Products { get; set; }
-
+    public DbSet<ProductTagEntity> ProductTag { get; set; }
     public DbSet<AdressEntity> AspNetAdresses { get; set; }
     public DbSet<UserAdressEntity>AspNetUsersAddresses { get; set; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //protected override void OnModelCreating(ModelBuilder builder)
     //{
     //    base.OnModelCreating(builder);
     //    var roleId = Guid.NewGuid().ToString();
     //    var userId = Guid.NewGuid().ToString();
-        
+
 
 
     //    builder.Entity<IdentityRole>().HasData(
@@ -36,7 +52,7 @@ public class DataContext : IdentityDbContext<AppUser>
     //            Id = roleId,
     //            Name = "SystemAdministrator",
     //            NormalizedName = "SYSTEMADMINISTRATOR"
-                
+
     //            }
     //        );
 
@@ -50,7 +66,7 @@ public class DataContext : IdentityDbContext<AppUser>
     //        UserName = "administrator@domain.com",
     //        Email = "administrator@domain.com",
     //        PasswordHash = passwordHasher.HashPassword(null!, "BytMig123!")
-            
+
     //    });
 
     //    builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>

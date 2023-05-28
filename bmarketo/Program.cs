@@ -21,6 +21,9 @@ builder.Services.AddScoped<ContactFormService>();
 builder.Services.AddScoped<AddressRepository>();
 builder.Services.AddScoped<UserAddressRepository>();
 builder.Services.AddScoped<AddressService>();
+builder.Services.AddScoped<TagService>();
+builder.Services.AddScoped<ProductTagRepository>();
+builder.Services.AddScoped<TagRepository>();
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddIdentity<AppUser, IdentityRole>(

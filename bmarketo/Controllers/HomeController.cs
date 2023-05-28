@@ -1,4 +1,7 @@
-﻿using bmarketo.ViewModel;
+﻿using bmarketo.Contexts;
+using bmarketo.Repos;
+using bmarketo.Services;
+using bmarketo.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,81 +9,48 @@ namespace bmarketo.Controllers;
 
 public class HomeController : Controller
 {
-    public IActionResult Index()
+
+    private readonly ProductService _productService;
+    private readonly DataContext _context;
+    private readonly ProductRepository _repository;
+
+    public HomeController(DataContext context, ProductService productService, ProductRepository repository)
     {
+        _context = context;
+        _productService = productService;
+        _repository = repository;
+    }
 
 
-        // Prova detta imorn, hämta även datacontext, glöm ej. 
-        //var viewModel = new HomeIndexViewModel
-        //{
-        //    BestCollection = new GridCollectionViewModel
-        //    {
-        //        Title = "Best Collection",
-        //        BreadCrumbs = new List<string> { "All", "Bag", "Dress", "Decoration", "Essentials", "Watches" },
-        //        GridItems = _dbContext.Products.Select(p => new GridCollectionItemViewModel
-        //        {
-        //            Id = p.Id.ToString(),
-        //            Name = p.Name,
-        //            Price = p.Price,
-        //            ProductImage = p.ImageUrl
-        //        }).ToList()
-        //    },
-
-
-
-
-
-            var viewModel = new HomeIndexViewModel
+    // fixa det under detta imorn 
+    public async Task <IActionResult> Index()
+    {
+        var viewModel = new HomeIndexViewModel
         {
+
+       
+
             BestCollection = new GridCollectionViewModel
             {
                 Title = "Best Collection",
-                BreadCrumbs = new List<string> { "All", "Bag", "Dress", "Decoration", "Essentials", "Watches" },
-                GridItems = new List<GridCollectionItemViewModel>
-                {
-                    new GridCollectionItemViewModel { Id = "1", Name = "Apple Watch Collection", Price = 30, ProductImage = "/Images/Placeholders/270x295.svg" },
-                    new GridCollectionItemViewModel { Id = "2", Name = "Apple Watch Collection", Price = 40, ProductImage = "/Images/Placeholders/270x295.svg" },
-                    new GridCollectionItemViewModel { Id = "3", Name = "Apple Watch Collection", Price = 50, ProductImage = "/Images/Placeholders/270x295.svg" },
-                    new GridCollectionItemViewModel { Id = "4", Name = "Apple Watch Collection", Price = 60, ProductImage = "/Images/Placeholders/270x295.svg" },
-                    new GridCollectionItemViewModel { Id = "5", Name = "Apple Watch Collection", Price = 70, ProductImage = "/Images/Placeholders/270x295.svg" },
-                    new GridCollectionItemViewModel { Id = "6", Name = "Apple Watch Collection", Price = 80, ProductImage = "/Images/Placeholders/270x295.svg" },
-                    new GridCollectionItemViewModel { Id = "7", Name = "Apple Watch Collection", Price = 90, ProductImage = "/Images/Placeholders/270x295.svg" },
-                    new GridCollectionItemViewModel { Id = "8", Name = "Apple Watch Collection", Price = 100, ProductImage = "/Images/Placeholders/270x295.svg" }
-                }
+                BreadCrumbs = new List<string> { "All", "Bag", "Dress", "Decoration", "Essentials", "Interior", "Laptops" },
+                GridItems = await _productService.GetNewProducts()
+
 
             },
 
-            PercentageOff = new GridCollectionViewModel
+
+                PercentageOff = new GridCollectionViewModel
             {
                 Title = "Percentage Off", 
-                GridItems = new List <GridCollectionItemViewModel>
-                {
-                    new GridCollectionItemViewModel {Id = "9", Name = "Apple Watch Collection", OldPrice = 130, Price = 110, ProductImage = "/Images/Placeholders/369x310"},
-                   
-                }
+                GridItems = await _productService.GetFeaturedProducts()
             },
-            PercentageOff2 = new GridCollectionViewModel
-            {
-                Title = "Percentage Off",
-                GridItems = new List<GridCollectionItemViewModel>
-                {
-                    new GridCollectionItemViewModel {Id = "10", Name = "Apple Watch Collection", OldPrice = 130, Price = 110, ProductImage = "/Images/Placeholders/369x310"},
-
-                }
-            },
+   
 
             TopSelling = new GridCollectionViewModel
             {
                 Title = "Top Selling", 
-                GridItems = new List <GridCollectionItemViewModel>
-                { 
-                    new GridCollectionItemViewModel {Id = "11", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"},
-                    new GridCollectionItemViewModel {Id = "12", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"},
-                    new GridCollectionItemViewModel {Id = "13", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"},
-                    new GridCollectionItemViewModel {Id = "14", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"},
-                    new GridCollectionItemViewModel {Id = "15", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"},
-                    new GridCollectionItemViewModel {Id = "16", Name="Apple Watch Collection", OldPrice = 120, Price = 80, ProductImage ="/Images/Placeholders/270x295.svg"}
-                }
+                GridItems = await _productService.GetPopularProducts()
             },
 
             EndBoxes = new GridCollectionViewModel

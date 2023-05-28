@@ -9,17 +9,20 @@ namespace bmarketo.Services
 {
     public class ProductService
     {
+        #region Constructors etc
         private readonly DataContext _context;
         private readonly ProductRepository _repository;
+        private readonly ProductTagRepository _productTagRepo;
         private readonly IWebHostEnvironment _webhostEnviroment;
-        public ProductService(DataContext context, ProductRepository repository, IWebHostEnvironment webHostEnvironment)
+        public ProductService(DataContext context, ProductRepository repository, IWebHostEnvironment webHostEnvironment, ProductTagRepository productTagRepo)
         {
-            _context = context; 
+            _context = context;
             _repository = repository;
             _webhostEnviroment = webHostEnvironment;
+            _productTagRepo = productTagRepo;
         }
+        #endregion
 
-        
         public async Task<bool> CreateAsync(ProductRegistrationViewModel productRegistrationViewModel)
         {
             try
@@ -38,9 +41,11 @@ namespace bmarketo.Services
 
         }
 
+
+        // Kanske lägga till <bool> här om det ej fungerar. 
         public async Task<ProductModel>CreateAsyncTwo(ProductEntity entity)
         {
-            var _entity = await _repository.GetAsync(x=> x.Id == entity.Id);
+            var _entity = await _repository.GetAsync(x=> x.ArticleNumber == entity.ArticleNumber);
             if (_entity == null)
             {
                 _entity = await _repository.AddAsync(entity);
@@ -81,9 +86,94 @@ namespace bmarketo.Services
             return products;
         }
 
-   
+        public async Task AddProductTagsAsync(ProductEntity entity, string[] tags)
+        {
+            foreach(var tag in tags)
+            {
+                await _productTagRepo.AddAsync(new ProductTagEntity
+                {
+                    ArticleNumber = entity.ArticleNumber,
+                     TagId = int.Parse(tag)
 
 
+                }); 
+            }
+        }
+
+
+
+        public async Task<List<GridCollectionItemViewModel>> GetNewProducts()
+        {
+
+            var popularProducts = await _context.Products
+             .Where(p => p.ProductTags.Any(pt => pt.Tag.TagName == "New"))
+             .ToListAsync();
+
+            // Convert the product entities to the view model
+            var viewModel = popularProducts.Select(p => new GridCollectionItemViewModel
+            {
+                Id = p.ArticleNumber,
+                Name = p.Name,
+                Price = (decimal)p.Price,
+                ProductImage = p.ProductImage,
+                Description = p.Description,
+                OldPrice = p.OldPrice
+            }).ToList();
+
+            return viewModel;
+
+
+
+
+        }
+        public async Task<List<GridCollectionItemViewModel>> GetPopularProducts()
+        {
+
+            var popularProducts = await _context.Products
+             .Where(p => p.ProductTags.Any(pt => pt.Tag.TagName == "Popular"))
+             .ToListAsync();
+
+            // Convert the product entities to the view model
+            var viewModel = popularProducts.Select(p => new GridCollectionItemViewModel
+            {
+                Id = p.ArticleNumber,
+                Name = p.Name,
+                Price = (decimal)p.Price,
+                ProductImage = p.ProductImage,
+                Description = p.Description,
+                OldPrice = p.OldPrice
+            }).ToList();
+
+            return viewModel;
+
+
+
+
+        }
+        public async Task<List<GridCollectionItemViewModel>> GetFeaturedProducts()
+        {
+
+            var popularProducts = await _context.Products
+             .Where(p => p.ProductTags.Any(pt => pt.Tag.TagName == "Featured"))
+             .ToListAsync();
+
+            // Convert the product entities to the view model
+            var viewModel = popularProducts.Select(p => new GridCollectionItemViewModel
+            {
+                Id = p.ArticleNumber,
+                Name = p.Name,
+                Price = (decimal)p.Price,
+                ProductImage = p.ProductImage,
+                Description = p.Description,
+                OldPrice = p.OldPrice
+            }).ToList();
+
+            return viewModel;
+
+
+
+
+        }
 
     }
 }

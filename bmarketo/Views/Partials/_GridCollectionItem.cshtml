@@ -1,7 +1,9 @@
-﻿@model GridCollectionItemViewModel
+﻿<!--fixa detta imorn innan inlämning-->
+
+@model GridCollectionItemViewModel
 
 <a asp-controller="ProductDetails" asp-action="Index" asp-route-id="@Model.Id" class="card">
-    <img src="@Model.ProductImage" class="topimg" alt="@Model.Name">
+    <img src="@Url.Content("~/Images/products/" + Model.ProductImage) class="topimg" alt="@Model.Name">
     <div class="card-body">
         <div class="title">
         <p class="head-text">@Model.Name</p>

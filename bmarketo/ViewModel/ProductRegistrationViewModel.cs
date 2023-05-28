@@ -7,7 +7,9 @@ namespace bmarketo.ViewModel
     public class ProductRegistrationViewModel
     {
         public IEnumerable<ProductModel> Products { get; set; } = new List<ProductModel>();
-        public int Id { get; set; }
+     
+
+        public string ArticleNumber { get; set; } = null!;
       
         [Required(ErrorMessage = "You have to name the product")]
         [Display(Name = "*Product Name:")]
@@ -29,10 +31,12 @@ namespace bmarketo.ViewModel
 
             var entity = new ProductEntity
             {
-                Id = productRegistrationViewModel.Id,
+           
                 Name = productRegistrationViewModel.Name,
                 Price = productRegistrationViewModel.Price,
                 Description = productRegistrationViewModel.Description,
+                ArticleNumber = productRegistrationViewModel.ArticleNumber,
+            
 
             }; 
             if(productRegistrationViewModel.ProductImage != null )
@@ -42,13 +46,7 @@ namespace bmarketo.ViewModel
             return entity;
 
 
-            //return new ProductEntity
-            //{
-            //    Name = productRegistrationViewModel.Name,
-            //    Description = productRegistrationViewModel.Description,
-            //    Price = productRegistrationViewModel.Price,
-            //    ProductImage = productRegistrationViewModel.ProductImage,
-            //};
+         
         }
 
 

@@ -1,4 +1,5 @@
 ﻿using bmarketo.Contexts;
+using bmarketo.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -28,6 +29,12 @@ namespace bmarketo.Repos
         {
             return await _context.Set<TEntity>().Where(expression).ToListAsync();
         }
+
+        public virtual async Task<IEnumerable<TEntity>> GetAllTagsAsync()
+        {
+            var entities = await _context.Set<TEntity>().ToListAsync();
+            return entities;
+        }
         
         public virtual async Task<TEntity>UpdateAsync(TEntity entity)
         {
@@ -48,6 +55,15 @@ namespace bmarketo.Repos
 
          
         }
+
+        public virtual async Task<IEnumerable<ProductModel>> GetProductsByTagAsync(string tagName)
+        {
+            var products = await _context.Products.Include(p => p.ProductTags).ThenInclude(pt => pt.Tag).
+                Where(p => p.ProductTags.Any(pt => pt.Tag.TagName == tagName)).ToListAsync();
+
+            return products.Select(p=>(ProductModel)p).ToList();
+        }
+
 
     }
 }

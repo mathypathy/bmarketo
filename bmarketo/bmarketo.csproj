@@ -14,7 +14,6 @@
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\Images\products\" />
     <Folder Include="wwwroot\scss\Components\GridCollection\" />
-    <Folder Include="wwwroot\scss\Components\Products\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,14 @@
+﻿@import "../../core/mixins.scss";
+.productview {
+
+    @include lg {
+        .container {
+            display: grid;
+            gap:15px;
+            grid-template-columns: repeat(4,270px);
+            grid-template-rows: repeat(4,395px);
+        }
+    }
+
+
+}

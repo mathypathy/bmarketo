@@ -1,0 +1,38 @@
+﻿@model HomeIndexViewModel
+<h1 style="font-weight:bold; font-family: roboto;">
+@foreach(var title in Model.BestCollection.Title)
+{
+     @title;
+   
+},
+</h1>
+
+<div class="breadcrumbs">
+    @foreach (var breadcrumb in Model.BestCollection.BreadCrumbs)
+    {
+        <span>@breadcrumb</span>
+        @if (!breadcrumb.Equals(Model.BestCollection.BreadCrumbs.Last()))
+        {
+            <span class="separator">/</span>
+        }
+    }
+</div>
+<div class="container" style="justify-content:center;">
+@foreach (var product in Model.BestCollection.GridItems)
+{
+    <a asp-controller="ProductDetails" asp-action="Index" asp-route-id="@product.Id" class="card" style="width: 272px; color: black;">
+        <img src="~/Images/products/@product.ProductImage" class="topimg" alt="@product.Name" style="width: 270px; height: 295px;">
+        <div class="card-body">
+            <div class="title">
+                <p class="head-text" style="font-weight:bold; font-size:22px;">@product.Name</p>
+            </div>
+            <div class="info">
+                <p>@product.Description</p>
+                <p class="paragraph">$@product.Price</p>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
+    </a>
+
+}
+</div>
