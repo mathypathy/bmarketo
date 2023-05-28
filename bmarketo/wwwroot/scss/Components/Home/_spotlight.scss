@@ -32,8 +32,9 @@
 
         @include lg{
             grid-template-columns: repeat(6,270px);
-            grid-template-rows: repeat(1, 296px);
+            grid-template-rows: repeat(1, 396px);
             gap:40px;
+       
         }
         .product-box{
             @include lg{

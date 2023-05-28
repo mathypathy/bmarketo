@@ -18,12 +18,12 @@
 <!-- Showcase end-->
 <!--Cardgrid start-->
 <section class="cardgrid">
-    <partial name="/Views/Partials/_PopularPartial.cshtml"/>
+    <partial name="/Views/Partials/_NewProductsPartial.cshtml"/>
 </section>
 <!--Cardgrid end-->
 <!--Best price starts-->
 <section class="bestprice">
-    <partial name="/Views/Partials/_InfoBoxPartial.cshtml" />
+
     <div class="container">
         <partial name="/Views/Partials/_PercentageOffBox.cshtml" />
     </div>
@@ -35,13 +35,13 @@
     <h1>Top Selling Products This Week</h1>
     <hr>
     <div class="container">
-      <partial name="/Views/Partials/_TopSellingCollection.cshtml" model="@Model.TopSelling" />
+      <partial name="/Views/Partials/_TopSellingProductsPartial.cshtml"/>
     </div>
 </section>
 <!-- Top selling products ends-->
 <!-- Endboxes starts-->
 <section class="end-boxes">
-<partial name="/Views/Partials/_EndBoxesCollection.cshtml" model="@Model.EndBoxes"/>
+<partial name="/Views/Partials/_EndBoxesPartial.cshtml"/>
 </section>
 <!-- Endboxes ends-->
 <!--subscribe starts-->

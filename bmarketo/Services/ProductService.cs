@@ -175,5 +175,30 @@ namespace bmarketo.Services
 
         }
 
+        public async Task<List<GridCollectionItemViewModel>> GetEndProducts()
+        {
+
+            var popularProducts = await _context.Products
+             .Where(p => p.ProductTags.Any(pt => pt.Tag.TagName == "RandomStuff"))
+             .ToListAsync();
+
+            // Convert the product entities to the view model
+            var viewModel = popularProducts.Select(p => new GridCollectionItemViewModel
+            {
+                Id = p.ArticleNumber,
+                Name = p.Name,
+                Price = (decimal)p.Price,
+                ProductImage = p.ProductImage,
+                Description = p.Description,
+                OldPrice = p.OldPrice
+            }).ToList();
+
+            return viewModel;
+
+
+
+
+        }
+
     }
 }

@@ -32,23 +32,25 @@ namespace bmarketo.Controllers
         //FIXA DETTA IMORN 
 
         [HttpPost]
-        public async Task <IActionResult> Index(UserLoginViewModel viewModel)
+
+
+        public async Task<IActionResult> Index(UserLoginViewModel viewModel)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
 
 
                 if (await _auth.LoginAsync(viewModel))
-              
+
                     return LocalRedirect(viewModel.ReturnUrl);
 
                 ModelState.AddModelError("", "Incorrect email or password.");
             }
-            
+
             return View(viewModel);
         }
 
-      
+
 
 
     }

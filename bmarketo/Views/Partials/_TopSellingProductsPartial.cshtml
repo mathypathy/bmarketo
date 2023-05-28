@@ -1,10 +1,21 @@
-﻿@model GridCollectionItemViewModel
-<a asp-controller="ProductDetails" asp-action="Index" asp-route-id="@Model.Id" class="card">
-<div class="product-box">
-    <img src="Images/Placeholders/270x295.svg" alt="">
-    <h3>@Model.Name</h3>
-    <p class="old">$@Model.OldPrice</p>
-    <p class="new">$@Model.Price</p>
-    <hr>
-</div>
-</a>
+﻿@model HomeIndexViewModel
+
+
+@foreach (var product in Model.TopSelling.GridItems)
+{
+    <a asp-controller="ProductDetails" asp-action="Index" asp-route-id="@product.Id" class="card" style="width: 272px; color: black;">
+        <img src="~/Images/products/@product.ProductImage" class="topimg" alt="@product.Name" style="width: 270px; height: 295px;">
+        <div class="card-body">
+            <div class="title">
+                <p class="head-text" style="font-weight:bold; font-size:22px;">@product.Name</p>
+            </div>
+            <div class="info">
+                <p>@product.Description</p>
+                <p class="paragraph">$@product.Price</p>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
+    </a>
+}
+
+

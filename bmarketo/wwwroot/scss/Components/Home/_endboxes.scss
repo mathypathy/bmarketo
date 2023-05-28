@@ -1,31 +1,45 @@
 @import '../../core/_colors.scss';
 
 
-.end-boxes{
-    display:none;
-    @include lg{
-    display:grid;
-    grid-template-columns: repeat(3,420px);
-    justify-content: center;
-    text-align: left;
+.end-boxes {
+    display: none;
+ 
+    @include lg {
+        display: grid;
+        gap: 15px;
+
     }
-    .boxes{     
-    
-        .productname{
-            @include lg{
-                font-weight:$font-weight-bold;
-                color:black;
+
+    .container {
+        @include lg{
+        display: grid;
+        justify-content: center;
+        gap: 15px;
+        grid-template-columns: repeat(3, 270px);
+        grid-template-rows: repeat(1, 400px);
+        margin-bottom:40px;
+        }
+    }
+
+    .boxes {
+
+        .productname {
+            @include lg {
+                font-weight: $font-weight-bold;
+                color: black;
             }
         }
-        .info{
-            @include lg{
-                font-size:12px;
+
+        .info {
+            @include lg {
+                font-size: 12px;
             }
         }
-        .comment{
-            @include lg{
-                font-size:14px;
-                color:$color-dark-4;
+
+        .comment {
+            @include lg {
+                font-size: 14px;
+                color: $color-dark-4;
             }
         }
     }

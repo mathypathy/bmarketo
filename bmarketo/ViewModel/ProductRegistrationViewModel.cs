@@ -26,6 +26,7 @@ namespace bmarketo.ViewModel
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
+        public decimal OldPrice { get; set; }
         public static implicit operator ProductEntity(ProductRegistrationViewModel productRegistrationViewModel)
         {
 
@@ -36,7 +37,7 @@ namespace bmarketo.ViewModel
                 Price = productRegistrationViewModel.Price,
                 Description = productRegistrationViewModel.Description,
                 ArticleNumber = productRegistrationViewModel.ArticleNumber,
-            
+                OldPrice = productRegistrationViewModel.OldPrice,
 
             }; 
             if(productRegistrationViewModel.ProductImage != null )

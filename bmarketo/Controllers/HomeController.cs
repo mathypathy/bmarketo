@@ -55,13 +55,8 @@ public class HomeController : Controller
 
             EndBoxes = new GridCollectionViewModel
             {
-                Title ="End boxes", 
-                GridItems = new List <GridCollectionItemViewModel>
-                {
-                    new GridCollectionItemViewModel {Id = "17", Name="Apple Watch Collection", Price = 80, ProductImage="/Images/Placeholders/370x295.svg"},
-                    new GridCollectionItemViewModel {Id = "18", Name="Apple Watch Collection", Price = 80, ProductImage="/Images/Placeholders/370x295.svg"},
-                    new GridCollectionItemViewModel {Id = "19", Name="Apple Watch Collection", Price = 80, ProductImage="/Images/Placeholders/370x295.svg"}
-                }
+             
+                GridItems = await _productService.GetEndProducts()
             }
 
         };

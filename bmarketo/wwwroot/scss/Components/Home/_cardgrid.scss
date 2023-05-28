@@ -35,8 +35,8 @@
     .container {
         display: grid;
         margin-top: 20px;
-        grid-template-columns: repeat(2, 150px);
-        grid-template-rows: repeat(4,220px);
+        grid-template-columns: repeat(1, 270px);
+        grid-template-rows: repeat(8,400px);
         justify-content: center;
         gap: 45px;
         margin-bottom: 100px;
@@ -52,7 +52,7 @@
 
         .card {
             border: none;
-
+            background-color:#efefef;
 
 
             .title {

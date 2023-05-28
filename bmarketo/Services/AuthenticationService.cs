@@ -1,4 +1,5 @@
-﻿using bmarketo.Contexts.Identity;
+﻿using bmarketo.Contexts;
+using bmarketo.Contexts.Identity;
 using bmarketo.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -12,8 +13,9 @@ namespace bmarketo.Services
         private readonly AddressService _addressService;
         private readonly SignInManager<AppUser> _SignInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly DataContext _Context;
 
-        public AuthenticationService(UserManager<AppUser> userManager, AddressService addressService, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
+        public AuthenticationService(UserManager<AppUser> userManager, AddressService addressService, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, DataContext context)
         {
             _userManager = userManager;
             _addressService = addressService;
@@ -89,8 +91,7 @@ namespace bmarketo.Services
         }
 
 
-
-
+     
 
 
 
